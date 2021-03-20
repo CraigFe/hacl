@@ -1,11 +1,3 @@
-#!/usr/bin/env ocaml
-
-;;
-#use "topfind"
-
-;;
-#require "unix"
-
 let null = Unix.openfile "/dev/null" Unix.[ O_RDONLY ] 0o644
 
 let kstrf k fmt = Format.kasprintf k fmt

@@ -5,6 +5,11 @@
  (foreign_archives hacl_x25519_mirage)
  (wrapped false))
 
+(executable
+ (name symbols)
+ (modules symbols)
+ (libraries unix))
+
 (rule
  (targets libhacl_x25519_mirage.a)
  (deps symbols.txt libhacl_x25519_unsafe_stubs.a)
@@ -23,7 +28,7 @@
   symbols.ml
   (:o Hacl_Curve25519_51.o Hacl_Ed25519.o Hacl_Hash.o))
  (action
-  (run ./symbols.ml %{o} %{targets})))
+  (run ./symbols.exe %{o} %{targets})))
 
 (library
  (name hacl_x25519_unsafe)
